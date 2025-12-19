@@ -59,3 +59,20 @@ void matrix_adjoint(float A[SIZE][SIZE], float result[SIZE][SIZE]) {
     
     matrix_transpose(temp, result);
 }
+int matrix_inverse(float A[SIZE][SIZE], float result[SIZE][SIZE]) {
+    float det = matrix_determinant(A);
+    if (det == 0) {
+        printf("Error: Determinant is 0, inverse does not exist.\n");
+        return 0; 
+    }
+    
+    float adj[SIZE][SIZE];
+    matrix_adjoint(A, adj);
+    
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[i][j] = adj[i][j] / det;
+        }
+    }
+    return 1; 
+}
