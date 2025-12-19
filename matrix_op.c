@@ -43,3 +43,19 @@ float matrix_determinant(float A[SIZE][SIZE]) {
            A[0][1] * (A[1][0] * A[2][2] - A[1][2] * A[2][0]) +
            A[0][2] * (A[1][0] * A[2][1] - A[1][1] * A[2][0]);
 }
+void matrix_adjoint(float A[SIZE][SIZE], float result[SIZE][SIZE]) {
+    float temp[SIZE][SIZE];
+    temp[0][0] =  (A[1][1] * A[2][2] - A[1][2] * A[2][1]);
+    temp[0][1] = -(A[1][0] * A[2][2] - A[1][2] * A[2][0]);
+    temp[0][2] =  (A[1][0] * A[2][1] - A[1][1] * A[2][0]);
+    
+    temp[1][0] = -(A[0][1] * A[2][2] - A[0][2] * A[2][1]);
+    temp[1][1] =  (A[0][0] * A[2][2] - A[0][2] * A[2][0]);
+    temp[1][2] = -(A[0][0] * A[2][1] - A[0][1] * A[2][0]);
+    
+    temp[2][0] =  (A[0][1] * A[1][2] - A[0][2] * A[1][1]);
+    temp[2][1] = -(A[0][0] * A[1][2] - A[0][2] * A[1][0]);
+    temp[2][2] =  (A[0][0] * A[1][1] - A[0][1] * A[1][0]);
+    
+    matrix_transpose(temp, result);
+}
