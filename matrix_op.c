@@ -21,4 +21,13 @@ void matrix_element_wise_multiply(float A[SIZE][SIZE], float B[SIZE][SIZE], floa
         }
     }
 }
-
+void matrix_multiply(float A[SIZE][SIZE], float B[SIZE][SIZE], float result[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < SIZE; k++) {
+                result[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}
