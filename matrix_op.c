@@ -1,5 +1,5 @@
 #include "matrix_op.h"
-
+#include <stdio.h>
 void matrix_add(int A[SIZE][SIZE], int B[SIZE][SIZE], int result[SIZE][SIZE]) {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -11,6 +11,13 @@ void matrix_substract(int A[SIZE][SIZE], int B[SIZE][SIZE], int result[SIZE][SIZ
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             result[i][j] = A[i][j] - B[i][j];
+        }
+    }
+}
+void matrix_element_wise_multiply(float A[SIZE][SIZE], float B[SIZE][SIZE], float result[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[i][j] = A[i][j] * B[i][j];
         }
     }
 }
