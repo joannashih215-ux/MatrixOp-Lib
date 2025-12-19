@@ -31,3 +31,10 @@ void matrix_multiply(float A[SIZE][SIZE], float B[SIZE][SIZE], float result[SIZE
         }
     }
 }
+void matrix_transpose(float A[SIZE][SIZE], float result[SIZE][SIZE]) {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            result[j][i] = A[i][j];
+        }
+    }
+}
